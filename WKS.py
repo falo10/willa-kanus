@@ -43,7 +43,7 @@ def nagroda():
         zdobytyArtefakt =  choices(Artefakty, [30, 25, 20, 15, 5], k=1)[0]
     elif (szczescie == 2):
         zdobytyArtefakt =  choices(artefakty, [15, 25, 20, 15, 10], k=1)[0]
-        
+
     if (zdobytyArtefakt == ListaArtefaktow.Złamany_szlug):
         print ('Ehhhh pierdolone zwierzęta .... miały być artefakty a jedyne co znalazłeś to:', ListaArtefaktow.Złamany_szlug.name, ', który jest nic nie warty')
         return 0
@@ -57,7 +57,7 @@ def nagroda():
                     """)
         return wartosc
     elif (zdobytyArtefakt == ListaArtefaktow.Joint):
-        print (ListaArtefaktow.Joint.name, '! Sprzedam go Bambuswoi!')
+        print (ListaArtefaktow.Joint.name, '! Sprzedam go Bambusowi!')
         wartosc = aproksymacja(300)
         print (f"""
 
@@ -165,7 +165,7 @@ O cześć {imie}. Jasne, że znam trasę! To bedzie:
 {trasa[2]}
 {trasa[3]}
 ostatniego Ci nie powiem bo byo za łatwo xd""")
-        break    
+        break
     elif (wybor == Klasa.Farciarz.value):
         szczescie = 2
         print ('Wiesz co mówią o tych co liczą na szczęście?!')
@@ -181,7 +181,7 @@ print ('Czas na rozgrywkę!')
 start = int(input('Jeśli chcesz zobaczyć zawartosc Twojego portfela naciśnij liczbę 1, jeśli chcesz od razu zacząć grę kliknij 2: '))
 
 
-# czy tutaj kombinowac cos zeby nie bylo start == 1 v 2   np enum ... portfel 
+# czy tutaj kombinowac cos zeby nie bylo start == 1 v 2   np enum ... portfel
 if (start == 1):
     print ('W portfelu masz: ', torba)
     print ('Jeśli już wiesz ile masz w kieszeni to zaczynajmy!')
@@ -229,7 +229,7 @@ if (torba > 0):
 
 
     while True:
-        
+
         PierwszyKrok = input ("Jaki jest Twój ruch: ")
 
 
@@ -250,9 +250,9 @@ if (torba > 0):
 
 """)
             break
-        
+
         elif (PierwszyKrok != trasa[0]):
-            
+
             torba -= 100
             if (torba <0):
                 print("""
@@ -282,9 +282,9 @@ NIE KAŻDY MOŻE ZOSTAĆ KOLEJNĄ LEGENDĄ""")
 for z in range (1,4):
 
     if (torba >= 0):
-        
+
         while True:
-        
+
             ruch = input ("Jaki jest Twój kolejny ruch: ")
 
 
@@ -304,7 +304,7 @@ Zblizasz się do celu!
 """)
                 break
             elif (ruch != trasa[z]):
-                
+
                 torba -= 100
                 if (torba <0):
                     break
@@ -313,14 +313,14 @@ Zblizasz się do celu!
 Tak jak wspominałem będzie Cię to kosztowało 100 zł
                         """)
                     print ('Zawartość Twojego portfela to:', torba)
-            
-            
+
+
     else:
         print("""
 
 
         NIE KAŻDY MOŻE ZOSTAĆ KOLEJNĄ LEGENDĄ""")
-        
+
         break
 
 
@@ -339,9 +339,9 @@ ALBO NIGDY.....
 
 """)
 
-    
+
     while True:
-        
+
             ruch = input ("Czy kolejny ruch pozwoli Ci zostać kimś, kim zawsze chciałeś się stać? Jaki jest Twój kolejny krok?  ")
 
 
@@ -356,7 +356,7 @@ ALBO NIGDY.....
     A ty {imie}, {imie} JESTEŚ KOTEM""")
                 break
             elif (ruch != trasa[4]):
-                
+
                 torba -= 100
                 if (torba <0):
                     print("""
@@ -396,4 +396,4 @@ print ('dzięki za gierkie, miłego dnia')
 
 
 
-    
+
