@@ -95,7 +95,7 @@ def nagroda():
 
 
 
-print ("""Witaj w WILLA KANUS SIMULATOR 1.1
+print ("""Witaj w WILLA KANUS SIMULATOR 1.2
 Zasady są bardzo proste. Twoim celem będzie przejście przez Wille Kanus - siedzibę legendranego opactwa!
 Jak tego dokonać? Będziesz musiał wskazywać kierunek w którym ma się poruszać Twoja postać. Tylko jedna dorga jest właściwa! Czasy są ciężkie....
 Polski ład
