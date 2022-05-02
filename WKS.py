@@ -8,20 +8,20 @@ characterClass = Enum('Klasa postaci', {'Banan': 'Banan',
                                'Farciarz': 'Farciarz'})
 
 
-torba = 300
+bag = 300
 
-trasa = choices (['prawo', 'lewo', 'prosto'], k=5)
+road = choices (['prawo', 'lewo', 'prosto'], k=5)
 
-szczescie = 1
+luck = 1
 
-kaska = [0, 200, 800, 2000]
+money = [0, 200, 800, 2000]
 
 
-Osoba = IntEnum ('Osoba', 'Bambus Falo Artur')
+Person = IntEnum ('Osoba', 'Bambus Falo Artur')
 
-osobaSzansa ={Osoba.Bambus: 0.2,
-              Osoba.Falo: 0.7,
-              Osoba.Artur: 0.1}
+osobaSzansa ={Person.Bambus: 0.2,
+              Person.Falo: 0.7,
+              Person.Artur: 0.1}
 
 osobyLista = list (osobaSzansa.keys())
 
@@ -39,9 +39,9 @@ def aproksymacja(nagroda):
 
 
 def nagroda():
-    if (szczescie == 1):
+    if (luck == 1):
         zdobytyArtefakt =  choices(Artefakty, [30, 25, 20, 15, 5], k=1)[0]
-    elif (szczescie == 2):
+    elif (luck == 2):
         zdobytyArtefakt =  choices(Artefakty, [15, 25, 20, 15, 10], k=1)[0]
 
     if (zdobytyArtefakt == ListaArtefaktow.Złamany_szlug):
@@ -130,44 +130,44 @@ Czas na wybranie klasy postaci! Każda klasa cechuje się inną specjalną umiej
 while True:
     wybor = input('Jaki jest Twój wybór? Napisz klasę postaci, którą chcesz wybrać!: ')
     if (wybor == characterClass.Banan.value):
-        otrzymanaKaska = choices(kaska,[0.15, 0.20, 0.55, 0.10], k=1)[0]
+        otrzymanaKaska = choices(money,[0.15, 0.20, 0.55, 0.10], k=1)[0]
         if (otrzymanaKaska == 0):
             print('Jesteś takim giga grzybem, że stary nie zostawiłby Ci nawet złamanego pensa! radź sobie sam xd')
         elif (otrzymanaKaska == 200):
             print ('Masz tu 2 stówy, nie dzwoń o więcej!')
-            torba += otrzymanaKaska
+            bag += otrzymanaKaska
         elif (otrzymanaKaska == 800):
             print ('Nie po to tatuś się tyle namęczył, żeby jego potomek nie potrafił przejść przez jakąś letniskową chatke! Masz tutaj 800 zł ode mnie!')
-            torba += otrzymanaKaska
+            bag += otrzymanaKaska
         elif (otrzymanaKaska == 2000):
             print ('Dla mojego ukochanego wszystko. Myślę że 2000 zamkną wszystki usta!')
-            torba+= otrzymanaKaska
+            bag+= otrzymanaKaska
         break
     elif (wybor == characterClass.Pytalski.value):
         kto = choices (osobyLista, sznasaLista, k=1)[0]
-        if (kto == Osoba.Bambus):
+        if (kto == Person.Bambus):
             print (f"""<widzisz Bambusa z czerwonymi oczami, jakby przez godzine pływał na basenie bez okularów>
 OOOO siema {imie}, jasne byczq już Ci mówię trasę... To było tak:
-{trasa[0]}
+{road[0]}
 kurwa sorry {imie} ,ale w chuj się zjarałem i nie pamiętam dalej... powodzenia xd""")
-        elif (kto == Osoba.Falo):
+        elif (kto == Person.Falo):
             print (f""" <Słyszysz szmer drapania się po skórze, domyślasz sie, że poblizu musi byc gdzieś Falo!>
 {imie}!! Co tam morda? Pewnie że pamiętam trasę...To było:
-{trasa[0]}
-{trasa[1]}
-{trasa[2]}
+{road[0]}
+{road[1]}
+{road[2]}
 kurwa pamięć jak zwykle zawodzi xd ale i tak dużo powiedziałem to chyba dasz radę""")
-        elif (kto == Osoba.Artur):
+        elif (kto == Person.Artur):
             print(f"""<przed drzwiami widisz Artura którego cała twarz jest czerwona od słońca.>
 O cześć {imie}. Jasne, że znam trasę! To bedzie:
-{trasa[0]}
-{trasa[1]}
-{trasa[2]}
-{trasa[3]}
+{road[0]}
+{road[1]}
+{road[2]}
+{road[3]}
 ostatniego Ci nie powiem bo byo za łatwo xd""")
         break
     elif (wybor == characterClass.Farciarz.value):
-        szczescie = 2
+        luck = 2
         print ('Wiesz co mówią o tych co liczą na szczęście?!')
         break
     else:
@@ -183,7 +183,7 @@ start = int(input('Jeśli chcesz zobaczyć zawartosc Twojego portfela naciśnij 
 
 # czy tutaj kombinowac cos zeby nie bylo start == 1 v 2   np enum ... portfel
 if (start == 1):
-    print ('W portfelu masz: ', torba)
+    print ('W portfelu masz: ', bag)
     print ('Jeśli już wiesz ile masz w kieszeni to zaczynajmy!')
 elif (start == 2):
     print ('Zaczynamy!')
@@ -225,7 +225,7 @@ prosto
 
 
 
-if (torba > 0):
+if (bag > 0):
 
 
     while True:
@@ -233,12 +233,12 @@ if (torba > 0):
         PierwszyKrok = input ("Jaki jest Twój ruch: ")
 
 
-        if (PierwszyKrok == trasa[0]):
+        if (PierwszyKrok == road[0]):
             print ('Pierwszy krok za Tobą! Chwała co raz bliżej')
             print ('W związku ze wskazaniem dobrej drogi otrzymujesz: ')
             bonus = nagroda()
-            torba += bonus
-            print ('Zawartość Twojego portfela to:', torba)
+            bag += bonus
+            print ('Zawartość Twojego portfela to:', bag)
             print ("""
 
 
@@ -251,10 +251,10 @@ if (torba > 0):
 """)
             break
 
-        elif (PierwszyKrok != trasa[0]):
+        elif (PierwszyKrok != road[0]):
 
-            torba -= 100
-            if (torba <0):
+            bag -= 100
+            if (bag <0):
                 print("""
 
 
@@ -265,7 +265,7 @@ NIE KAŻDY MOŻE ZOSTAĆ KOLEJNĄ LEGENDĄ""")
             else:
                 print ("""Niestety wybrałeś źle... nie ty pierwszy nie ty ostatni!
 Tak jak wspominałem będzie Cię to kosztowało 100 zł""")
-                print (f"""Zawartość Twojego portfela to: {torba}
+                print (f"""Zawartość Twojego portfela to: {bag}
                        """)
 else:
     print("""
@@ -281,19 +281,19 @@ NIE KAŻDY MOŻE ZOSTAĆ KOLEJNĄ LEGENDĄ""")
 
 for z in range (1,4):
 
-    if (torba >= 0):
+    if (bag >= 0):
 
         while True:
 
             ruch = input ("Jaki jest Twój kolejny ruch: ")
 
 
-            if (ruch == trasa[z]):
+            if (ruch == road[z]):
                 print ('Chwała co raz bliżej')
                 print (' W związku ze wskazaniem dobrej drogi otrzymujesz: ')
                 bonus = nagroda()
-                torba += bonus
-                print ('Zawartość Twojego portfela to:', torba)
+                bag += bonus
+                print ('Zawartość Twojego portfela to:', bag)
                 print ("""
 
 
@@ -303,16 +303,16 @@ Zblizasz się do celu!
 
 """)
                 break
-            elif (ruch != trasa[z]):
+            elif (ruch != road[z]):
 
-                torba -= 100
-                if (torba <0):
+                bag -= 100
+                if (bag <0):
                     break
                 else:
                     print ("""Niestety wybrałeś źle... nie ty pierwszy nie ty ostatni!
 Tak jak wspominałem będzie Cię to kosztowało 100 zł
                         """)
-                    print ('Zawartość Twojego portfela to:', torba)
+                    print ('Zawartość Twojego portfela to:', bag)
 
 
     else:
@@ -326,7 +326,7 @@ Tak jak wspominałem będzie Cię to kosztowało 100 zł
 
 
 
-if (torba >=0):
+if (bag >=0):
 
     print ("""
 
@@ -345,7 +345,7 @@ ALBO NIGDY.....
             ruch = input ("Czy kolejny ruch pozwoli Ci zostać kimś, kim zawsze chciałeś się stać? Jaki jest Twój kolejny krok?  ")
 
 
-            if (ruch == trasa[4]):
+            if (ruch == road[4]):
                 print (f"""
 
 
@@ -355,10 +355,10 @@ ALBO NIGDY.....
 
     A ty {imie}, {imie} JESTEŚ KOTEM""")
                 break
-            elif (ruch != trasa[4]):
+            elif (ruch != road[4]):
 
-                torba -= 100
-                if (torba <0):
+                bag -= 100
+                if (bag <0):
                     print("""
 
 
@@ -370,7 +370,7 @@ ALBO NIGDY.....
                     print ("""Niestety wybrałeś źle... nie ty pierwszy nie ty ostatni!
     Tak jak wspominałem będzie Cię to kosztowało 100 zł
                         """)
-                    print ('Zawartość Twojego portfela to:', torba)
+                    print ('Zawartość Twojego portfela to:', bag)
 else:
     print("""
 
