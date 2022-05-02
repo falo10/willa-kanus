@@ -3,7 +3,7 @@ from random import *
 
 
 
-Klasa = Enum('Klasa postaci', {'Banan': 'Banan',
+characterClass = Enum('Klasa postaci', {'Banan': 'Banan',
                                'Pytalski':'Pytalski',
                                'Farciarz': 'Farciarz'})
 
@@ -42,7 +42,7 @@ def nagroda():
     if (szczescie == 1):
         zdobytyArtefakt =  choices(Artefakty, [30, 25, 20, 15, 5], k=1)[0]
     elif (szczescie == 2):
-        zdobytyArtefakt =  choices(artefakty, [15, 25, 20, 15, 10], k=1)[0]
+        zdobytyArtefakt =  choices(Artefakty, [15, 25, 20, 15, 10], k=1)[0]
 
     if (zdobytyArtefakt == ListaArtefaktow.Złamany_szlug):
         print ('Ehhhh pierdolone zwierzęta .... miały być artefakty a jedyne co znalazłeś to:', ListaArtefaktow.Złamany_szlug.name, ', który jest nic nie warty')
@@ -129,7 +129,7 @@ Czas na wybranie klasy postaci! Każda klasa cechuje się inną specjalną umiej
 
 while True:
     wybor = input('Jaki jest Twój wybór? Napisz klasę postaci, którą chcesz wybrać!: ')
-    if (wybor == Klasa.Banan.value):
+    if (wybor == characterClass.Banan.value):
         otrzymanaKaska = choices(kaska,[0.15, 0.20, 0.55, 0.10], k=1)[0]
         if (otrzymanaKaska == 0):
             print('Jesteś takim giga grzybem, że stary nie zostawiłby Ci nawet złamanego pensa! radź sobie sam xd')
@@ -143,7 +143,7 @@ while True:
             print ('Dla mojego ukochanego wszystko. Myślę że 2000 zamkną wszystki usta!')
             torba+= otrzymanaKaska
         break
-    elif (wybor == Klasa.Pytalski.value):
+    elif (wybor == characterClass.Pytalski.value):
         kto = choices (osobyLista, sznasaLista, k=1)[0]
         if (kto == Osoba.Bambus):
             print (f"""<widzisz Bambusa z czerwonymi oczami, jakby przez godzine pływał na basenie bez okularów>
@@ -166,7 +166,7 @@ O cześć {imie}. Jasne, że znam trasę! To bedzie:
 {trasa[3]}
 ostatniego Ci nie powiem bo byo za łatwo xd""")
         break
-    elif (wybor == Klasa.Farciarz.value):
+    elif (wybor == characterClass.Farciarz.value):
         szczescie = 2
         print ('Wiesz co mówią o tych co liczą na szczęście?!')
         break
